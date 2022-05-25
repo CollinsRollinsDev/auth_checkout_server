@@ -26,8 +26,8 @@ let corsOptions = {
 
 // initialate cors
 
-index.use(cors(corsOptions));
-// index.use(cors());
+// index.use(cors(corsOptions));
+index.use(cors());
 // routes imports
 import login from './routes/login.js'
 import create_account from './routes/create_account.js'
