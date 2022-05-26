@@ -15,7 +15,7 @@ router.get("/", verifyJWT, async (req, res) => {
       message: "user not found",
     });
 
-  return res.status(404).json({
+  return res.status(200).json({
     success: true,
     data: user,
   });
