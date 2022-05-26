@@ -13,11 +13,19 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser';
 index.use(cookieParser())
 let whitelist = ['http://localhost:3000', 'https://auth-chechout.vercel.app' /** other domains if any */ ]
+let corsOptions = {
+    credentials: true,
+    origin: function(origin, callback) {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    }
+  }
 
-index.use(cors({
-  origin:whitelist,
-  credentials:true
-}));
+// initialate cors
+index.use(cors(corsOptions));
 // index.use(cors());
 // routes imports
 import login from './routes/login.js'
