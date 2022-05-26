@@ -36,7 +36,7 @@ router.post("/", async (req, res) => {
               if (!err && result) {
                 const id = user.id;
                 const token = jwt.sign({ id }, process.env.JWT_SECRET, {
-                  expiresIn: 300,
+                  expiresIn: 25200000,
                 });
                 // res.cookie('token',token, { httpOnly: true, secure: true, maxAge: 3600000, sameSite: 'none'})
                 return res.json({
