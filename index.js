@@ -26,8 +26,12 @@ let corsOptions = {
 
 // initialate cors
 
-index.use(cors(corsOptions));
-// index.use(cors());
+// index.use(cors(corsOptions));
+// index.use(cors({
+//   origin:["http://localhost:3000", 'https://auth-chechout.vercel.app'],
+//   credentials:true
+// }));
+index.use(cors());
 // routes imports
 import login from './routes/login.js'
 import create_account from './routes/create_account.js'

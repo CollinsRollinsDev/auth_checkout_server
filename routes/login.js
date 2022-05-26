@@ -34,8 +34,8 @@ router.post("/", async (req, res) => {
             const token = jwt.sign({id}, process.env.JWT_SECRET, {
                 expiresIn:300,
             })
-            
-            return res.cookie('token',token, { httpOnly: true, secure: true, maxAge: 3600000, sameSite: 'none', domain: 'auth-chechout.vercel.app', path: '/'}).json({
+            res.cookie('token',token, { httpOnly: true, secure: true, maxAge: 3600000, sameSite: 'none', domain: 'auth-chechout.vercel.app', path: '/'})
+            return res.json({
                   success: true,
                   data:user
                 })
