@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
 
 const validateJWT = (req, res, next) => {
-  // const token = req.headers["x-access-token"];
+  const token = req.headers["x-access-token"];
   console.log(req, "as request");
-  const { token } = req.cookies;
+  // const { token } = req.cookies;
   console.log(token, "As token");
   if (!token)
     return res.json({
