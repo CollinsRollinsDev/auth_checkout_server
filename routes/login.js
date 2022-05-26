@@ -35,7 +35,7 @@ router.post("/", async (req, res) => {
                 expiresIn:300,
             })
             
-            return res.cookie('token',token, { httpOnly: true, secure: false, maxAge: 3600000 }).json({
+            return res.cookie('token',token, { httpOnly: true, secure: true, maxAge: 3600000 }).json({
                   success: true,
                   data:user
                 })
